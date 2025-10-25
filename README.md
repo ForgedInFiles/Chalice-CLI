@@ -75,11 +75,11 @@ Embarking on this adventure is as simple as a few friendly steps. Let's get you 
    ```
    This installs Chalice as a command-line tool, ready to serve you wherever you are.
 
-3. **Configure Your API Keys**: Copy the `.env.example` file to `.env` and fill in your keys:
-   ```
-   cp .env.example .env
-   ```
-   Then edit `.env` with your actual API keys:
+3. **Configure Your API Keys**: Create a `.env` file and add your API keys:
+    ```
+    touch .env
+    ```
+    Then edit `.env` with your actual API keys:
    ```
    OPENROUTER_API_KEY=your_openrouter_key_here
    GROQ_API_KEY=your_groq_key_here
@@ -138,7 +138,6 @@ To ensure Chalice runs smoothly on your system:
 chalice-cli/
 ├── chatbot.py              # Main application file with tool integration
 ├── pyproject.toml          # Project configuration and dependencies
-├── .env.example           # Template for environment variables
 ├── .gitignore             # Git ignore rules
 ├── INTRODUCTION.md        # Brief introduction to Chalice
 ├── prompts/               # Agent prompt files
@@ -198,4 +197,4 @@ With warmth and expertise,
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details. Feel free to use, modify, and share—knowledge should flow freely!
+This project is licensed under the MIT License. Feel free to use, modify, and share—knowledge should flow freely!
