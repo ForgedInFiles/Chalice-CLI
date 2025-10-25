@@ -49,6 +49,15 @@ One of Chalice's most exciting features is its multi-agent system! When tackling
 
 These agents work seamlessly behind the scenes, chaining their expertise to deliver multi-step solutions. For example, ask me to "create a snake game in Python," and watch as the planning and coding agents collaborate to bring your vision to life!
 
+### 🔧 Advanced Tool Integration
+Chalice now includes powerful filesystem tools that allow me to interact directly with your development environment:
+- **File Operations**: Read, write, create, and modify files
+- **Directory Management**: List contents, create directories, move files
+- **Path Validation**: Secure path handling with directory traversal protection
+- **Real-time Tool Execution**: See tool results formatted beautifully in your terminal
+
+This transforms Chalice from a conversational AI into a full-fledged development assistant, capable of prototyping, debugging, and deploying with minimal friction.
+
 ## 🚀 Getting Started: Your Journey with Chalice Begins
 
 Embarking on this adventure is as simple as a few friendly steps. Let's get you set up and chatting in no time!
@@ -66,7 +75,11 @@ Embarking on this adventure is as simple as a few friendly steps. Let's get you 
    ```
    This installs Chalice as a command-line tool, ready to serve you wherever you are.
 
-3. **Configure Your API Keys**: Create a `.env` file in the project root (or your working directory) with your keys:
+3. **Configure Your API Keys**: Copy the `.env.example` file to `.env` and fill in your keys:
+   ```
+   cp .env.example .env
+   ```
+   Then edit `.env` with your actual API keys:
    ```
    OPENROUTER_API_KEY=your_openrouter_key_here
    GROQ_API_KEY=your_groq_key_here
@@ -99,6 +112,7 @@ Just type your questions or statements naturally! Whether it's "Explain recursio
 - **Experiment with Models**: Different providers excel at different tasks—try them all!
 - **Use Commands Liberally**: They're designed to enhance, not complicate, your workflow
 - **Explore Complex Queries**: Leverage the multi-agent system for in-depth solutions
+- **Try Tool-Enabled Features**: For providers that support tools (OpenRouter, Groq, Mistral), I can execute filesystem operations directly
 
 ## 📖 The Memory of Chalice: Chat History
 
@@ -118,6 +132,24 @@ To ensure Chalice runs smoothly on your system:
 - **API Keys**: At least one provider key is needed to get started
 - **Permissions**: Read/write access to your working directory for history files
 
+## 📁 Project Structure
+
+```
+chalice-cli/
+├── chatbot.py              # Main application file
+├── pyproject.toml          # Project configuration and dependencies
+├── .env.example           # Template for environment variables
+├── .gitignore             # Git ignore rules
+├── prompts/               # Agent prompt files
+│   ├── system.md          # Main system prompt
+│   ├── coding.md          # Coding agent prompt
+│   ├── debugging.md       # Debugging agent prompt
+│   ├── planning.md        # Planning agent prompt
+│   ├── reviewing.md       # Reviewing agent prompt
+│   └── task_creation.md   # Task creation agent prompt
+└── README.md              # This file
+```
+
 ## 🌈 Next Steps: Expanding the Horizons of Chalice
 
 Ah, the future is bright, my friend! While Chalice is already a formidable companion, there's always room for growth. Here are some exciting directions we're exploring to make our partnership even more powerful:
@@ -125,7 +157,7 @@ Ah, the future is bright, my friend! While Chalice is already a formidable compa
 ### 🔧 Tool and Function Calling Integration
 Imagine Chalice not just conversing, but actively interacting with your development environment! We're planning to add:
 - **Code Execution**: Run snippets directly in a sandboxed environment for instant testing
-- **File Operations**: Read, edit, and create files on your behalf
+- **File Operations**: Read, edit, and create files on your behalf (now implemented!)
 - **Git Integration**: Commit changes, create branches, and manage repositories
 - **API Interactions**: Query external services and databases
 - **System Commands**: Execute terminal commands safely and intelligently
@@ -165,7 +197,4 @@ With warmth and expertise,
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details. Feel free to use, modify, and share—knowledge should flow freely!</content>
-</xai:function_call">  
-</xai:function_call name="list">
-<parameter name="path">prompts
+This project is licensed under the MIT License - see the LICENSE file for details. Feel free to use, modify, and share—knowledge should flow freely!
