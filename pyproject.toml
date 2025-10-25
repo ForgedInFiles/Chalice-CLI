@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chalice"
+version = "0.1.0"
+description = "AI Chatbot as Chalice"
+requires-python = ">=3.8"
+dependencies = [
+    "rich",
+    "python-dotenv",
+    "requests",
+    "openai",
+    "groq",
+    "mistralai",
+    "google-generativeai",
+    "prompt_toolkit",
+]
+
+[project.scripts]
+chalice = "chatbot:main"

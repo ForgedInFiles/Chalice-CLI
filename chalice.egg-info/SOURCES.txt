@@ -1,0 +1,9 @@
+README.md
+chatbot.py
+pyproject.toml
+chalice.egg-info/PKG-INFO
+chalice.egg-info/SOURCES.txt
+chalice.egg-info/dependency_links.txt
+chalice.egg-info/entry_points.txt
+chalice.egg-info/requires.txt
+chalice.egg-info/top_level.txt

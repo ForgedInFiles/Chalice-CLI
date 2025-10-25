@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: chalice
+Version: 0.1.0
+Summary: AI Chatbot as Chalice
+Requires-Python: >=3.8
+Requires-Dist: rich
+Requires-Dist: python-dotenv
+Requires-Dist: requests
+Requires-Dist: openai
+Requires-Dist: groq
+Requires-Dist: mistralai
+Requires-Dist: google-generativeai
+Requires-Dist: prompt_toolkit
