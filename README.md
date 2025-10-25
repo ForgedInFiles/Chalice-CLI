@@ -136,10 +136,11 @@ To ensure Chalice runs smoothly on your system:
 
 ```
 chalice-cli/
-├── chatbot.py              # Main application file
+├── chatbot.py              # Main application file with tool integration
 ├── pyproject.toml          # Project configuration and dependencies
 ├── .env.example           # Template for environment variables
 ├── .gitignore             # Git ignore rules
+├── INTRODUCTION.md        # Brief introduction to Chalice
 ├── prompts/               # Agent prompt files
 │   ├── system.md          # Main system prompt
 │   ├── coding.md          # Coding agent prompt
@@ -147,7 +148,7 @@ chalice-cli/
 │   ├── planning.md        # Planning agent prompt
 │   ├── reviewing.md       # Reviewing agent prompt
 │   └── task_creation.md   # Task creation agent prompt
-└── README.md              # This file
+└── README.md              # This comprehensive documentation
 ```
 
 ## 🌈 Next Steps: Expanding the Horizons of Chalice
