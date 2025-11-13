@@ -1,0 +1,47 @@
+# Agent Configuration for Chalice
+# Define agent directories and settings
+
+directories:
+  builtin: "agents/builtin"
+  custom: "agents/custom"
+  marketplace: "agents/marketplace"
+
+settings:
+  # Auto-load agents on startup
+  auto_load: true
+
+  # Watch for file changes and hot-reload
+  hot_reload: true
+
+  # Enable agent communication
+  enable_communication: true
+
+  # Maximum agents in chain
+  max_chain_length: 10
+
+# Default agents to load
+default_agents:
+  - system
+  - planning
+  - coding
+  - debugging
+  - reviewing
+  - task_creation
+
+# Specialized agents
+specialized_agents:
+  - ui_ux_designer
+  - data_analyst
+  - security_auditor
+  - devops_engineer
+  - database_expert
+  - api_architect
+  - testing_specialist
+  - performance_optimizer
+
+# Agent marketplace settings
+marketplace:
+  enabled: true
+  repository_url: "https://github.com/chalice-ai/agent-marketplace"
+  auto_update: false
+  cache_duration: 3600  # 1 hour

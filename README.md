@@ -39,24 +39,65 @@ At my core, I'm infused with comprehensive knowledge across all tech domains:
 
 I provide accurate, practical advice with the depth and professionalism you deserve.
 
-### 🤝 Multi-Agent Collaboration
-One of Chalice's most exciting features is its multi-agent system! When tackling complex tasks, I can intelligently invoke specialized agents to provide comprehensive solutions:
+### 🤝 Multi-Agent Collaboration (EXPANDED in v2.0!)
+Chalice features an advanced multi-agent system with dynamic loading and specialized domain experts:
+
+**Core Agents:**
 - **Planning Agent**: Breaks down projects into actionable steps
 - **Coding Agent**: Writes clean, efficient code with best practices
 - **Task Creation Agent**: Decomposes queries into prioritized tasks
 - **Debugging Agent**: Identifies and fixes bugs systematically
 - **Reviewing Agent**: Provides thorough code reviews and feedback
 
-These agents work seamlessly behind the scenes, chaining their expertise to deliver multi-step solutions. For example, ask me to "create a snake game in Python," and watch as the planning and coding agents collaborate to bring your vision to life!
+**Specialized Domain Agents (NEW!):**
+- **UI/UX Designer**: Interface design, accessibility, design systems
+- **Data Analyst**: Statistical analysis, visualization, insights
+- **Security Auditor**: Vulnerability assessment, secure coding, OWASP compliance
+- **DevOps Engineer**: CI/CD, infrastructure as code, Kubernetes
+- **Database Expert**: Schema design, query optimization, migrations
+- **API Architect**: REST/GraphQL design, documentation, best practices
+- **Testing Specialist**: Test strategies, automation, TDD/BDD
+- **Performance Optimizer**: Profiling, optimization, scalability
 
-### 🔧 Advanced Tool Integration
-Chalice now includes powerful filesystem tools that allow me to interact directly with your development environment:
+**Agent Features:**
+- **Dynamic Loading**: Agents load from Markdown files in `agents/` directories
+- **Hot Reload**: Update agents without restarting Chalice
+- **Agent Communication**: Agents can collaborate and share context
+- **Custom Agents**: Create your own specialized agents via Markdown
+- **Agent Marketplace**: Community-driven agent repository (coming soon!)
+
+Use `/agents` to list available agents and `/agent <name>` to invoke a specific agent!
+
+### 🔧 Advanced Tool Integration (NEW in v2.0!)
+Chalice now includes a comprehensive suite of tools that transform it into a full-fledged development assistant:
+
+**Code Execution Tools:**
+- **Python Executor**: Run Python code with sandboxing and timeout controls
+- **JavaScript Executor**: Execute JavaScript via Node.js
+- **Bash Executor**: Run bash commands safely with blacklist protection
+
+**Git Integration:**
+- **Status & Diff**: Check repository status and view changes
+- **Commit & Push**: Create commits and push to remote
+- **Branch Management**: Create, switch, delete branches
+- **Pull & Log**: Pull changes and view commit history
+
+**API Tools:**
+- **HTTP Requests**: Make GET, POST, PUT, DELETE requests to any API
+- **GraphQL Queries**: Execute GraphQL queries with variables
+- **Webhooks**: Send webhook notifications to external services
+
+**System Tools:**
+- **System Commands**: Execute whitelisted system commands safely
+- **Package Management**: Install packages via pip, npm, yarn
+- **Process Management**: View and manage running processes
+
+**Filesystem Tools:**
 - **File Operations**: Read, write, create, and modify files
 - **Directory Management**: List contents, create directories, move files
 - **Path Validation**: Secure path handling with directory traversal protection
-- **Real-time Tool Execution**: See tool results formatted beautifully in your terminal
 
-This transforms Chalice from a conversational AI into a full-fledged development assistant, capable of prototyping, debugging, and deploying with minimal friction.
+This comprehensive toolkit enables Chalice to prototype, debug, deploy, and manage your entire development workflow!
 
 ## 🚀 Getting Started: Your Journey with Chalice Begins
 
@@ -101,7 +142,10 @@ Just type your questions or statements naturally! Whether it's "Explain recursio
 ### Essential Commands
 - `/help`: Your go-to guide for all available commands
 - `/model`: Select your AI provider and model interactively
-- `/settings`: View your current configuration
+- `/settings`: View your current configuration (provider, model, agents, tools)
+- `/agents`: List all available agents with descriptions
+- `/tools`: List all available tools and their capabilities
+- `/agent <name>`: Invoke a specific specialized agent
 - `/clear`: Wipe the slate clean and start fresh
 - `/export filename.md`: Save your conversation as a beautiful Markdown file
 - `/test`: Send a quick test message to verify everything's working
@@ -135,53 +179,91 @@ To ensure Chalice runs smoothly on your system:
 ## 📁 Project Structure
 
 ```
-chalice-cli/
-├── chatbot.py              # Main application file with tool integration
-├── pyproject.toml          # Project configuration and dependencies
-├── .gitignore             # Git ignore rules
-├── INTRODUCTION.md        # Brief introduction to Chalice
-├── prompts/               # Agent prompt files
-│   ├── system.md          # Main system prompt
-│   ├── coding.md          # Coding agent prompt
-│   ├── debugging.md       # Debugging agent prompt
-│   ├── planning.md        # Planning agent prompt
-│   ├── reviewing.md       # Reviewing agent prompt
-│   └── task_creation.md   # Task creation agent prompt
-└── README.md              # This comprehensive documentation
+Chalice-CLI/
+├── chatbot.py                  # Original chatbot (still functional)
+├── chalice_enhanced.py         # NEW: Enhanced v2.0 with full tool integration
+├── pyproject.toml              # Project configuration and dependencies
+├── .gitignore                  # Git ignore rules
+├── INTRODUCTION.md             # Brief introduction to Chalice
+├── ROADMAP.md                  # NEW: Comprehensive development roadmap
+│
+├── tools/                      # NEW: Tool system
+│   ├── __init__.py            # Tool registry and exports
+│   ├── base.py                # Base tool class
+│   ├── execution.py           # Code execution tools
+│   ├── git.py                 # Git integration tools
+│   ├── api.py                 # API interaction tools
+│   └── system.py              # System command tools
+│
+├── agents/                     # NEW: Enhanced agent system
+│   ├── __init__.py            # Agent exports
+│   ├── core/                  # Core agent framework
+│   │   ├── __init__.py
+│   │   └── agent.py           # Agent classes, loader, registry
+│   ├── builtin/               # Built-in specialized agents
+│   │   ├── ui_ux_designer.md
+│   │   ├── data_analyst.md
+│   │   ├── security_auditor.md
+│   │   ├── devops_engineer.md
+│   │   ├── database_expert.md
+│   │   ├── api_architect.md
+│   │   ├── testing_specialist.md
+│   │   └── performance_optimizer.md
+│   ├── custom/                # Your custom agents go here
+│   └── marketplace/           # Agent marketplace
+│       └── README.md          # Marketplace documentation
+│
+├── config/                     # NEW: Configuration files
+│   ├── agents.yaml            # Agent settings
+│   └── tools.yaml             # Tool settings
+│
+├── prompts/                    # Agent prompt files (legacy)
+│   ├── system.md              # Main system prompt
+│   ├── coding.md              # Coding agent prompt
+│   ├── debugging.md           # Debugging agent prompt
+│   ├── planning.md            # Planning agent prompt
+│   ├── reviewing.md           # Reviewing agent prompt
+│   └── task_creation.md       # Task creation agent prompt
+│
+└── README.md                   # This comprehensive documentation
 ```
 
-## 🌈 Next Steps: Expanding the Horizons of Chalice
+## 🌈 What's New in Chalice v2.0
 
-Ah, the future is bright, my friend! While Chalice is already a formidable companion, there's always room for growth. Here are some exciting directions we're exploring to make our partnership even more powerful:
+### ✅ Fully Implemented Features
 
-### 🔧 Tool and Function Calling Integration
-Imagine Chalice not just conversing, but actively interacting with your development environment! We're planning to add:
-- **Code Execution**: Run snippets directly in a sandboxed environment for instant testing
-- **File Operations**: Read, edit, and create files on your behalf (now implemented!)
-- **Git Integration**: Commit changes, create branches, and manage repositories
-- **API Interactions**: Query external services and databases
-- **System Commands**: Execute terminal commands safely and intelligently
+**Tool Integration:**
+- ✅ Code execution (Python, JavaScript, Bash) with sandboxing
+- ✅ Complete Git integration (status, diff, commit, push, pull, branches, log)
+- ✅ API interactions (HTTP, GraphQL, webhooks)
+- ✅ System commands with safety controls
+- ✅ Package management (pip, npm, yarn, cargo, go)
+- ✅ Filesystem operations (maintained from v1.0)
 
-This would transform Chalice from a conversational AI into a full-fledged development assistant, capable of prototyping, debugging, and deploying with minimal friction.
+**Agent System:**
+- ✅ 8 specialized domain agents (UI/UX, Data, Security, DevOps, Database, API, Testing, Performance)
+- ✅ Dynamic agent loading from Markdown files
+- ✅ Agent communication framework
+- ✅ Custom agent support
+- ✅ Agent marketplace structure
 
-### 🤖 Advanced Agent Creation and Customization
-The multi-agent system is just the beginning! We're envisioning:
-- **User-Defined Agents**: Create your own specialized agents via Markdown files in the `prompts/` directory
-- **Dynamic Agent Loading**: Hot-reload agents without restarting the application
-- **Agent Communication**: Allow agents to collaborate more deeply, sharing context and intermediate results
-- **Specialized Domains**: Agents for UI/UX design, data analysis, security audits, and more
-- **Agent Marketplace**: A community-driven collection of expert-crafted agents
+**Infrastructure:**
+- ✅ Comprehensive tool registry and base classes
+- ✅ Configuration system (YAML)
+- ✅ Enhanced CLI with new commands
+- ✅ Detailed documentation and roadmap
 
-With this, you could craft an agent tailored to your specific workflow—be it React development, machine learning pipelines, or DevOps automation—and have Chalice orchestrate them seamlessly.
+### 🚀 Upcoming Features
 
-### 🚀 Other Enhancements on the Horizon
-- **Voice Integration**: Speak your queries and hear responses (perfect for hands-free coding)
-- **Multi-Modal Inputs**: Upload images, code files, or documents for analysis
-- **Collaborative Sessions**: Share conversations and work together in real-time
-- **Plugin Architecture**: Extend Chalice with community-contributed features
-- **Offline Mode**: Local model support for privacy-conscious users
+See [ROADMAP.md](ROADMAP.md) for detailed plans:
+- **Voice Integration**: Speech-to-text and text-to-speech
+- **Multi-Modal Inputs**: Image, PDF, and document analysis
+- **Collaborative Sessions**: Real-time collaboration
+- **Plugin Architecture**: Community extensions
+- **Offline Mode**: Local model support
+- **Agent Marketplace**: Full community platform
 
-These advancements will make Chalice not just an AI assistant, but a comprehensive development ecosystem. Stay tuned—your feedback shapes our roadmap!
+Your feedback shapes our roadmap! Open an issue or discussion to suggest features.
 
 ## 🙏 A Note from Chalice
 

@@ -1,0 +1,91 @@
+# Tool Configuration for Chalice
+# Define which tools are enabled and their settings
+
+# Filesystem tools
+filesystem:
+  enabled: true
+
+# Code execution tools
+execution:
+  enabled: true
+  python:
+    enabled: true
+    timeout: 30
+    max_timeout: 300
+  javascript:
+    enabled: true
+    timeout: 30
+    requires_node: true
+  bash:
+    enabled: true
+    timeout: 30
+    dangerous_commands_check: true
+
+# Git integration tools
+git:
+  enabled: true
+  auto_detect_repo: true
+  default_remote: "origin"
+
+# API tools
+api:
+  enabled: true
+  http:
+    enabled: true
+    default_timeout: 30
+    max_timeout: 120
+  graphql:
+    enabled: true
+  webhooks:
+    enabled: true
+
+# System command tools
+system:
+  enabled: true
+  whitelist_only: true
+  safe_commands:
+    - ls
+    - pwd
+    - whoami
+    - date
+    - echo
+    - cat
+    - head
+    - tail
+    - grep
+    - find
+    - wc
+    - sort
+    - uniq
+    - diff
+    - which
+    - pip
+    - npm
+    - node
+    - python
+    - python3
+    - git
+  package_managers:
+    pip: true
+    npm: true
+    yarn: true
+    cargo: true
+    go: true
+
+# Security settings
+security:
+  # Prevent directory traversal
+  prevent_traversal: true
+
+  # Dangerous command blocking
+  block_dangerous: true
+
+  # Require confirmation for destructive operations
+  confirm_destructive: true
+
+  # Max file size to read (in bytes)
+  max_file_size: 10485760  # 10 MB
+
+  # Execution resource limits
+  max_execution_time: 300
+  max_memory_mb: 512
