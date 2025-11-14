@@ -1128,18 +1128,6 @@ We're constantly evolving! Here's what's coming to Chalice:
 <tr>
 <td width="50%">
 
-#### 🗣️ **Voice Integration**
-- Speech-to-text input (Whisper)
-- Text-to-speech output (ElevenLabs, OpenAI TTS)
-- Wake word detection
-- Voice commands
-- Multi-language support
-
-**Status**: 🔜 Planned
-
-</td>
-<td width="50%">
-
 #### 🎨 **Multi-Modal Input**
 - Image analysis (GPT-4 Vision, Claude 3)
 - PDF parsing and extraction
@@ -1148,25 +1136,6 @@ We're constantly evolving! Here's what's coming to Chalice:
 - Code from screenshots
 
 **Status**: 🔜 Planned
-
-</td>
-</tr>
-</table>
-
-### 🤝 **Phase 2: Collaboration** (Q2 2025)
-
-<table>
-<tr>
-<td width="50%">
-
-#### 👥 **Collaborative Sessions**
-- Real-time session sharing
-- Multi-user conversations
-- Shared agent access
-- Live updates
-- Role-based permissions
-
-**Status**: 📋 In Design
 
 </td>
 <td width="50%">
@@ -1184,7 +1153,7 @@ We're constantly evolving! Here's what's coming to Chalice:
 </tr>
 </table>
 
-### 🔌 **Phase 3: Extensibility** (Q3 2025)
+### 🔌 **Phase 2: Extensibility** (Q2 2025)
 
 <table>
 <tr>
@@ -1215,7 +1184,7 @@ We're constantly evolving! Here's what's coming to Chalice:
 </tr>
 </table>
 
-### ⚡ **Phase 4: Advanced Features** (Q4 2025)
+### ⚡ **Phase 3: Advanced Features** (Q3 2025)
 
 - **🧠 Memory System**: Long-term memory, knowledge graphs, context persistence
 - **🔄 Workflow Automation**: Visual workflow builder, scheduled tasks, triggers
@@ -1227,8 +1196,8 @@ We're constantly evolving! Here's what's coming to Chalice:
 
 - ✅ **Completed**: MCP Architecture v2.5, 23 Tools, 13 Agents
 - 🏗️ **In Progress**: Agent Marketplace, Documentation
-- 📋 **Planned**: Voice Integration, Multi-Modal Input
-- 🔮 **Future**: Plugin System, Offline Mode, Web Interface
+- 📋 **Planned**: Multi-Modal Input, Plugin System
+- 🔮 **Future**: Offline Mode, Web Interface, Advanced Analytics
 
 **Want a feature?** [Open an issue](https://github.com/ForgedInFiles/Chalice-CLI/issues/new) or vote on existing ones!
 
