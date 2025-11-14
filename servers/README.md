@@ -100,3 +100,14 @@ System commands, package management, and process operations
 - `packages`: Install, update, or list packages using pip, npm, yarn, cargo, or go
 - `processes`: List or find running processes
 
+### Multimodal
+
+Multi-modal input processing including images, PDFs, documents, and diagrams
+
+**Tools (5):**
+- `analyze_image`: Analyze images using GPT-4 Vision or Claude 3 Opus with vision capabilities
+- `parse_pdf`: Extract text, metadata, and structure from PDF files
+- `summarize_document`: Generate intelligent summaries of text documents
+- `interpret_diagram`: Analyze and interpret diagrams, charts, flowcharts, and visual data
+- `extract_code_from_screenshot`: Extract and format code from screenshot images
+
