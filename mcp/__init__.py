@@ -9,7 +9,7 @@ from .client import (
     get_mcp_client,
     call_mcp_tool
 )
-from .servers import filesystem, git, execution, api, system
+from .servers import filesystem, git, execution, api, system, multimodal
 
 
 def initialize_mcp_servers() -> MCPClient:
@@ -25,6 +25,7 @@ def initialize_mcp_servers() -> MCPClient:
     client.register_server(execution.create_execution_server())
     client.register_server(api.create_api_server())
     client.register_server(system.create_system_server())
+    client.register_server(multimodal.get_multimodal_server())
 
     return client
 

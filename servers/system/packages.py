@@ -11,7 +11,7 @@ def packages(
     manager: str,
     action: str,
     package: str = None,
-    global_: bool = False
+    global: bool = False
 ) -> Dict[str, Any]:
     """
     Install, update, or list packages using pip, npm, yarn, cargo, or go
@@ -20,7 +20,7 @@ def packages(
         manager: Package manager to use
         action: Action to perform
         package: Package name (required for install/uninstall/search)
-        global_: Install globally (for npm/yarn)
+        global: Install globally (for npm/yarn)
 
     Returns:
         Dict[str, Any]: Tool execution result
