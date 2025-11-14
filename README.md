@@ -6,9 +6,10 @@
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![MCP Architecture](https://img.shields.io/badge/MCP-v2.5-purple.svg)](docs/MCP_ARCHITECTURE.md)
-[![Tools](https://img.shields.io/badge/tools-23-orange.svg)](servers/)
+[![MCP Architecture](https://img.shields.io/badge/MCP-v3.0-purple.svg)](docs/MCP_ARCHITECTURE.md)
+[![Tools](https://img.shields.io/badge/tools-28-orange.svg)](servers/)
 [![Agents](https://img.shields.io/badge/agents-13-brightgreen.svg)](agents/)
+[![Multi-Modal](https://img.shields.io/badge/multi--modal-enabled-blue.svg)](docs/MULTIMODAL.md)
 
 **Welcome, dear friend!** 👋
 
@@ -24,10 +25,12 @@ Chalice is not just another AI chatbot—it's your **personal tech virtuoso**, a
 
 - [✨ What Makes Chalice Special](#-what-makes-chalice-special)
 - [🎯 Features at a Glance](#-features-at-a-glance)
-- [🏗️ MCP Architecture v2.5](#️-mcp-architecture-v25-revolutionary-efficiency)
+- [🏗️ MCP Architecture v3.0](#️-mcp-architecture-v30-revolutionary-efficiency)
 - [🤖 Multi-Provider AI](#-multi-provider-ai-intelligence)
-- [🔧 23 Powerful Tools Across 5 Servers](#-23-powerful-tools-across-5-servers)
+- [🎨 Multi-Modal Input](#-multi-modal-input-see-hear-understand)
+- [🔧 28 Powerful Tools Across 6 Servers](#-28-powerful-tools-across-6-servers)
 - [👥 13 Specialized Agents](#-13-specialized-agents)
+- [🏪 Agent Marketplace](#-agent-marketplace)
 - [🚀 Quick Start](#-quick-start)
 - [💬 Usage Guide](#-usage-guide)
 - [📚 Documentation](#-documentation)
@@ -112,7 +115,7 @@ Your code, your data, your secrets—all stay local. Chalice processes sensitive
 
 ---
 
-## 🏗️ MCP Architecture v2.5: Revolutionary Efficiency
+## 🏗️ MCP Architecture v3.0: Revolutionary Efficiency
 
 Chalice implements **Anthropic's Model Context Protocol (MCP)** with code execution patterns—a groundbreaking approach that makes AI agents dramatically more efficient.
 
@@ -122,7 +125,7 @@ Traditional AI agents load ALL tool definitions upfront and pass every intermedi
 
 **Traditional Approach:**
 ```
-❌ Load 23 tool definitions → 15,000 tokens
+❌ Load 28 tool definitions → 20,000 tokens
 ❌ Every tool result flows through context → +50,000 tokens per operation
 ❌ No data processing before returning to model
 ```
@@ -132,7 +135,7 @@ Traditional AI agents load ALL tool definitions upfront and pass every intermedi
 ✅ Progressive disclosure → Load only what you need
 ✅ Code execution → Process data in execution environment
 ✅ Filesystem-based discovery → Explore tools like files
-✅ Result: 300 tokens instead of 15,000 (98% reduction!)
+✅ Result: 350 tokens instead of 20,000 (98.2% reduction!)
 ```
 
 ### 📊 **Performance Comparison**
@@ -255,9 +258,108 @@ Choose the right model for the right task:
 
 ---
 
-## 🔧 23 Powerful Tools Across 5 Servers
+## 🎨 Multi-Modal Input: See, Hear, Understand
 
-Chalice's tools are organized into **5 MCP servers**, each grouping related capabilities. Agents can discover and use these tools on-demand through filesystem exploration.
+Chalice v3.0 introduces comprehensive multi-modal capabilities, allowing you to work with images, PDFs, documents, diagrams, and more—not just text!
+
+### 🖼️ **Image Analysis**
+
+Analyze images using GPT-4 Vision or Claude 3:
+- UI/UX screenshot analysis
+- Object detection and recognition
+- Scene understanding and description
+- Text extraction (OCR)
+- Image-based question answering
+
+```python
+from servers.multimodal import analyze_image
+
+result = analyze_image(
+    image_path="dashboard.png",
+    prompt="Analyze this UI and suggest improvements",
+    model="gpt-4-vision"
+)
+```
+
+### 📄 **PDF Parsing**
+
+Extract text, metadata, and tables from PDFs:
+- Text extraction by page
+- Metadata extraction (author, title, dates)
+- Table detection and extraction
+- Multi-page document processing
+
+```python
+from servers.multimodal import parse_pdf
+
+result = parse_pdf(
+    pdf_path="report.pdf",
+    pages="1-10",
+    extract_tables=True
+)
+```
+
+### 📝 **Document Summarization**
+
+Generate intelligent summaries with multiple styles:
+- Paragraph summaries
+- Bullet point key takeaways
+- Executive summaries
+- Customizable length and compression
+
+```python
+from servers.multimodal import summarize_document
+
+result = summarize_document(
+    content="Your long document...",
+    style="executive",
+    max_length=200
+)
+```
+
+### 📊 **Diagram Interpretation**
+
+Understand diagrams, charts, and visual data:
+- Flowcharts and process diagrams
+- UML diagrams (class, sequence, etc.)
+- Entity-relationship diagrams
+- Architecture diagrams
+- Charts and graphs
+
+```python
+from servers.multimodal import interpret_diagram
+
+result = interpret_diagram(
+    image_path="architecture.png",
+    diagram_type="architecture"
+)
+```
+
+### 💻 **Code from Screenshots**
+
+Extract code from screenshots with OCR:
+- Python, JavaScript, Java, and more
+- Syntax preservation
+- Auto-formatting
+- Language auto-detection
+
+```python
+from servers.multimodal import extract_code_from_screenshot
+
+result = extract_code_from_screenshot(
+    image_path="code.png",
+    language="python",
+    clean_format=True
+)
+```
+
+📖 **Learn More**: [Multi-Modal Guide](docs/MULTIMODAL.md) • [Examples](examples/multimodal_usage.py)
+
+---
+
+## 🔧 28 Powerful Tools Across 6 Servers
+
+Chalice's tools are organized into **6 MCP servers**, each grouping related capabilities. Agents can discover and use these tools on-demand through filesystem exploration.
 
 ### 📁 **Filesystem Server** (7 tools)
 
@@ -387,6 +489,35 @@ packages(
 command(command="npm", args=["run", "build"])
 ```
 
+### 🎨 **Multi-Modal Server** (5 tools)
+
+Process images, PDFs, documents, diagrams, and more.
+
+| Tool | Description | Capabilities |
+|------|-------------|--------------|
+| `analyze_image` | Analyze images with vision models | GPT-4 Vision, Claude 3, OCR, object detection |
+| `parse_pdf` | Extract text and tables from PDFs | Page extraction, metadata, tables, structure |
+| `summarize_document` | Generate document summaries | Multiple styles, customizable length |
+| `interpret_diagram` | Analyze diagrams and charts | Flowcharts, UML, ERD, architecture, charts |
+| `extract_code_from_screenshot` | Extract code from screenshots | OCR, syntax preservation, multi-language |
+
+**Example:**
+```python
+from servers.multimodal import analyze_image, parse_pdf
+
+# Analyze a UI screenshot
+ui_analysis = analyze_image(
+    image_path="dashboard.png",
+    prompt="What UI improvements would you suggest?"
+)
+
+# Extract PDF content
+pdf_content = parse_pdf(
+    pdf_path="report.pdf",
+    extract_tables=True
+)
+```
+
 ### 🔍 **Tool Discovery**
 
 Agents can explore the `servers/` directory to discover tools on-demand:
@@ -395,7 +526,7 @@ Agents can explore the `servers/` directory to discover tools on-demand:
 # List available servers
 import os
 servers = os.listdir('./servers')
-# → ['filesystem', 'git', 'execution', 'api', 'system']
+# → ['filesystem', 'git', 'execution', 'api', 'system', 'multimodal']
 
 # Explore a specific server
 git_tools = os.listdir('./servers/git')
@@ -667,7 +798,7 @@ Expert agents for specific technical domains:
 - **Hot Reload**: Update agent behavior in real-time
 - **Agent Communication**: Agents can collaborate and share context
 - **Custom Agents**: Create your own with simple Markdown files
-- **Agent Marketplace**: Coming soon—share and discover community agents!
+- **Agent Marketplace**: Discover, install, and share community agents!
 
 ### 📝 **Creating Custom Agents**
 
@@ -703,6 +834,123 @@ Agent: [Your example response]
 Save to `agents/custom/react_expert.md` and restart Chalice!
 
 📖 **Learn More**: [Agent Marketplace](agents/marketplace/README.md) • [Custom Agents Guide](docs/CUSTOM_AGENTS.md)
+
+---
+
+## 🏪 Agent Marketplace
+
+Discover, install, and share community-created agents with the Chalice Agent Marketplace!
+
+### 🔍 **Search & Discover**
+
+Browse thousands of community agents with powerful search and filtering:
+
+```bash
+# Search all agents
+python -m agents.marketplace.cli search
+
+# Search by keyword
+python -m agents.marketplace.cli search "react"
+
+# Filter by category and rating
+python -m agents.marketplace.cli search --category frontend --min-rating 4.0
+
+# Sort by popularity
+python -m agents.marketplace.cli search --sort downloads
+```
+
+### 📦 **One-Click Installation**
+
+Install agents with a single command:
+
+```bash
+# Install an agent
+python -m agents.marketplace.cli install community_react_expert
+
+# View agent details
+python -m agents.marketplace.cli info community_react_expert
+
+# List installed agents
+python -m agents.marketplace.cli list
+```
+
+### ⭐ **Ratings & Reviews**
+
+See what the community thinks before installing:
+
+```bash
+# Add a review
+python -m agents.marketplace.cli review community_react_expert "john_doe" 5 "Excellent agent!"
+
+# Reviews are displayed with agent info
+python -m agents.marketplace.cli info community_react_expert
+```
+
+### 🚀 **Publish Your Agent**
+
+Share your agents with the community:
+
+```bash
+# Publish with metadata file
+python -m agents.marketplace.cli publish my_agent.md -m metadata.json
+
+# Or inline
+python -m agents.marketplace.cli publish my_agent.md \
+  --name "My Agent" \
+  --description "What it does" \
+  --author "Your Name" \
+  --category "general" \
+  --tags "tag1,tag2"
+```
+
+### 🔒 **Security & Quality**
+
+All marketplace agents are:
+- **Hash Verified**: File integrity checked on download
+- **Community Reviewed**: Rated and reviewed by users
+- **Open Source**: Full source code visible before install
+- **Sandboxed**: Run in controlled environments
+
+### 💻 **Programmatic API**
+
+Use the marketplace in your code:
+
+```python
+from agents.marketplace import get_marketplace
+
+marketplace = get_marketplace()
+
+# Search agents
+results = marketplace.search_agents(
+    query="react",
+    category="frontend",
+    min_rating=4.0
+)
+
+# Install agent
+result = marketplace.install_agent("community_react_expert")
+
+# Add review
+marketplace.add_review(
+    agent_id="community_react_expert",
+    user="john_doe",
+    rating=5,
+    comment="Great agent!"
+)
+```
+
+### 📊 **Categories**
+
+- **frontend**: React, Vue, Angular, Svelte
+- **backend**: APIs, databases, servers
+- **devops**: CI/CD, containers, cloud
+- **data**: Analytics, ML, visualization
+- **security**: Auditing, pentesting, compliance
+- **testing**: Unit, integration, E2E testing
+- **design**: UI/UX, accessibility, design systems
+- **general**: Multi-purpose agents
+
+📖 **Learn More**: [Marketplace Guide](agents/marketplace/README.md)
 
 ---
 
@@ -1122,32 +1370,32 @@ security:
 
 We're constantly evolving! Here's what's coming to Chalice:
 
-### 🚀 **Phase 1: Enhanced Capabilities** (Q1 2025)
+### ✅ **Phase 1: Enhanced Capabilities** (Q1 2025) - COMPLETED!
 
 <table>
 <tr>
 <td width="50%">
 
 #### 🎨 **Multi-Modal Input**
-- Image analysis (GPT-4 Vision, Claude 3)
-- PDF parsing and extraction
-- Document summarization
-- Diagram interpretation
-- Code from screenshots
+- Image analysis (GPT-4 Vision, Claude 3) ✅
+- PDF parsing and extraction ✅
+- Document summarization ✅
+- Diagram interpretation ✅
+- Code from screenshots ✅
 
-**Status**: 🔜 Planned
+**Status**: ✅ **COMPLETED**
 
 </td>
 <td width="50%">
 
 #### 🏪 **Agent Marketplace**
-- Community agent repository
-- One-click installation
-- Ratings and reviews
-- Version management
-- Agent discovery
+- Community agent repository ✅
+- One-click installation ✅
+- Ratings and reviews ✅
+- Version management ✅
+- Agent discovery ✅
 
-**Status**: 🏗️ In Development
+**Status**: ✅ **COMPLETED**
 
 </td>
 </tr>
@@ -1194,10 +1442,14 @@ We're constantly evolving! Here's what's coming to Chalice:
 
 ### 📈 **Progress Tracking**
 
-- ✅ **Completed**: MCP Architecture v2.5, 23 Tools, 13 Agents
-- 🏗️ **In Progress**: Agent Marketplace, Documentation
-- 📋 **Planned**: Multi-Modal Input, Plugin System
-- 🔮 **Future**: Offline Mode, Web Interface, Advanced Analytics
+- ✅ **Completed**:
+  - MCP Architecture v3.0 (28 tools, 6 servers)
+  - 13 Specialized Agents
+  - **Phase 1: Multi-Modal Input** (5 new tools)
+  - **Phase 1: Agent Marketplace** (Full implementation)
+- 🏗️ **In Progress**: Phase 2 - Plugin Architecture & Offline Mode
+- 📋 **Planned**: Phase 3 - Advanced Features (Memory, Workflows, Analytics)
+- 🔮 **Future**: Web Interface, Mobile Apps, Auto-Agents
 
 **Want a feature?** [Open an issue](https://github.com/ForgedInFiles/Chalice-CLI/issues/new) or vote on existing ones!
 
